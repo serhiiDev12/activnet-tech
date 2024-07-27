@@ -5,7 +5,7 @@ import {TreeItem} from "@mui/x-tree-view";
 
 export default function Faq() {
     return (
-        <div id="faq" className="flex bg-black text-white gap-8 p-4 xl:p-24">
+        <div id="faq" className="flex  w-full bg-black text-white gap-8 p-4 xl:p-24">
             <div className="faq w-full lg:w-1/2">
                 <h1 className="text-5xl font-light mb-6">Frequently asked questions</h1>
                 <SimpleTreeView className="faq-tree">

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import NavbarHead from "@/components/navbar";
 import {Provider} from "react-redux";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,13 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en">
+      <Head>
+          <link rel="icon" href="./favicon.svg"/>
+      </Head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <body className={inter.className}>
-        <NavbarHead />
-        {children}
+      <NavbarHead/>
+      {children}
       </body>
       </html>
   );

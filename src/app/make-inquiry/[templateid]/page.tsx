@@ -17,8 +17,10 @@ export default function MakeInquiryWithId() {
                         comments:string,
                         websites:string,
                         company:string,
-                        finalThoughts:string) => {
-        const html = orderToHtml(name, phone, email, comments, websites, company, finalThoughts, renderStuff.find(item => item.id.toString() === router.templateid)?.src);
+                        finalThoughts:string,
+                        service: any,
+                        template?: string) => {
+        const html = orderToHtml(name, phone, email, comments, websites, company, finalThoughts, service, renderStuff.find(item => item.id.toString() === router.templateid)?.src);
         await sendOrder(html);
     }
 

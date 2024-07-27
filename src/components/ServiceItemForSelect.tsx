@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import {ArrowForward} from "@mui/icons-material";
+import {useEffect, useState} from "react";
+import {plans} from "@/components/PlansList";
 
 export interface ServiceItemForSelectProps {
     id: number
@@ -13,9 +15,11 @@ export interface ServiceItemForSelectProps {
 }
 
 export default function ServiceItemForSelect({id, link, style, title, description, header}: ServiceItemForSelectProps) {
-    const selectedService = (header) => {
-        localStorage.setItem("service", header);
-    }
+    const [headerToStore, setHeader] = useState('');
+
+    useEffect(() => {
+        localStorage.setItem("service", headerToStore);
+    }, [headerToStore]);
 
     return (
         <div className="flex min-w-52 max-w-96 flex-col rounded-xl shadow-xl">
@@ -26,7 +30,7 @@ export default function ServiceItemForSelect({id, link, style, title, descriptio
                     <p className="text-md">{description}</p>
                 </div>
                 <Link href={link}
-                      onClick={() => selectedService(header)}
+                      onClick={() => setHeader(header)}
                       className="w-full px-8 py-3 flex items-center gap-2 hover:gap-8 text-white rounded-md border-2 border-transparent bg-black hover:border-black hover:bg-white hover:text-black duration-300">
                     Select a service <ArrowForward />
                 </Link>

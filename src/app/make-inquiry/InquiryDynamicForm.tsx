@@ -1,7 +1,7 @@
 "use client"
 
 import Stepper, {Step} from "@/components/Stepper";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {ArrowBack, ArrowForward, Refresh, Star} from "@mui/icons-material";
 import Selector from "@/components/Selector";
 import {plans} from "@/components/PlansList";
@@ -19,16 +19,24 @@ export interface InquiryDynamicFormProps {
              websites:string,
              company:string,
              finalThoughts:string,
-             service: string) => Promise<void>,
+             service?: any,
+             template?: string) => Promise<void>,
     template?: string
 }
 
 export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
     const [step, setStep] = useState(1);
-    const planToSerch = localStorage.getItem('plan');
-    const planObj = plans.find(item => item.title === planToSerch);
-    const [selectedPlan, setPlan] = useState(planObj ? planObj: plans[1]);
+
+    const [selectedPlan, setPlan] = useState({} as PlanProps);
     const router = useRouter();
+
+    useEffect(() => {
+        const planToSearch = localStorage.getItem('plan');
+        const serviceToStore = localStorage.getItem("service");
+        setService(serviceToStore ? serviceToStore: '');
+        const planObj = plans.find(item => item.title === planToSearch);
+        setPlan(planObj ? planObj: plans[1]);
+    }, []);
 
     const steps: Step[] = [
         {
@@ -57,6 +65,7 @@ export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
     const [company, setCompany] = useState("");
     const [finalThoughts, setFinalThoughts] = useState("");
     const [loading, setLoading] = useState(false);
+    const [service, setService] = useState('');
 
     const next = () => {
         if (step < 4)
@@ -67,11 +76,9 @@ export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
             setStep(step - 1);
     }
 
-    const service = window.localStorage.getItem("service");
-
     const submit = async () => {
         setLoading(true);
-        await props.submit(name, phone, email, comments, websites, company, finalThoughts, service);
+        await props.submit(name, phone, email, comments, websites, company, finalThoughts, service as string | undefined, props.template);
         router.push('/success');
         setLoading(false);
     }

@@ -9,10 +9,8 @@ export interface Content {
 }
 
 interface ServiceItem {
-    reverse: boolean,
     contentOne: Content,
     contentTwo: string,
-    color: string,
     classes: string
 }
 

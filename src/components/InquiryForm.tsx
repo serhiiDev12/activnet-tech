@@ -45,8 +45,8 @@ export default function InquiryForm(props: InquiryFormProps) {
                            className="border-2 border-gray-300 px-3 py-3 rounded focus:border-blue-500 outline-0"/>
                     <input value={email} onChange={e => setEmail(e.target.value)} type="text" placeholder="Email"
                            className="border-2 border-gray-300 px-3 py-3 rounded focus:border-blue-500 outline-0"/>
-                    <textarea value={message} onChange={e => setMessage(e.target.value)} type="text" id="message"
-                              rows="4"
+                    <textarea value={message} onChange={e => setMessage(e.target.value)} id="message"
+                              rows={4}
                               className="block p-2.5 w-full text-sm text-gray-900 bg-white bg-gray-50 border-2 rounded focus:border-blue-500 outline-0 border-gray-300 focus:ring-blue-500 "
                               placeholder="Job to be done"/>
 

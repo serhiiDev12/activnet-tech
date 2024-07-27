@@ -1,8 +1,4 @@
 "use client"
-import {useRouter} from "next/navigation";
-import tmp1 from '../app/images/Template1.svg'
-import tmp2 from '../app/images/Template2.svg'
-import tmp3 from '../app/images/Template3.svg'
 import {ArrowForward} from "@mui/icons-material";
 import {useEffect, useState} from "react";
 import Link from "next/link";
@@ -58,15 +54,16 @@ export const renderStuff: Template[] = [
         route: "/make-inquiry",
         src: "custom"
     }
-]
-export default function Templates({title, description}) {
-    const navigate  = useRouter();
+];
+
+interface TemplateProps {
+    title?: string,
+    description?: string
+}
+
+export default function Templates({title = '', description = ''}: TemplateProps) {
     const [selectedTemplate, setSelectedTemplate] = useState(renderStuff[0] as Template);
     const [loaded, setLoaded] = useState(true);
-
-    const redirect = (route, color) => {
-        navigate.push(route + '/' + color);
-    }
 
     useEffect(() => {
         setLoaded(false);
@@ -75,8 +72,8 @@ export default function Templates({title, description}) {
 
     return (
         <div className={`flex flex-col template-section justify-center xl:p-24 p-4 duration-300 w-full ${selectedTemplate.color}`}>
-            <h1 className='text-black lg:text-5xl text-3xl lg:w-1/2 font-bold'>{title}</h1>
-            <p className="lg:text-2xl text-medium text-bold mt-3">{description}</p>
+            <h1 className='text-black lg:text-5xl text-3xl lg:w-1/2 font-bold'>{title ? title : ''}</h1>
+            <p className="lg:text-2xl text-medium text-bold mt-3">{description ? description: ''}</p>
             <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mt-12 lg:px-24 md:p-8">
                 <div className="flex flex-col gap-4">
                     {
@@ -90,7 +87,7 @@ export default function Templates({title, description}) {
                     }
                 </div>
                 <div className="flex flex-col">
-                            <div onClick={() => redirect(selectedTemplate.route, selectedTemplate.color)} key={selectedTemplate.id}
+                            <div
                                  className={`${loaded ? 'opacity-100': 'opacity-0'} template-img duration-300 delay-100 shadow-2xl ${selectedTemplate.src}`}>
                             </div>
                 </div>

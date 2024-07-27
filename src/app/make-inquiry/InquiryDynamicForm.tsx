@@ -87,7 +87,7 @@ export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
         <div className="inquiry bg-gray-50">
             {loading && <Loading />}
             <div className="w-full flex justify-center items-center pt-32 pb-4">
-                <h1 className="text-6xl font-bold">{service ? service : 'Get started with your new website'}</h1>
+                <h1 className="text-6xl text-black font-bold">{service ? service : 'Get started with your new website'}</h1>
             </div>
             <Stepper step={step} steps={steps} />
             <div className="flex h-full xl:p-12 lg:p-12 md:p-12 p-0 w-full justify-center">
@@ -103,33 +103,33 @@ export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
                     {
                         step === 1 &&
                         <>
-                            <h1 className="text-2xl mb-4 font-bold">Let's start with your contact information</h1>
-                            <p className="text-sm">Name *</p>
+                            <h1 className="text-2xl mb-4 font-bold text-black">Let's start with your contact information</h1>
+                            <p className="text-sm text-black">Name *</p>
                             <input id="name" type="text"
                                    value={name}
                                    onChange={e => setName(e.target.value)}
                                    required={true}
-                                   className="bg-white mb-4 w-full border-2 border-gray-100 rounded-lg p-3"
+                                   className="bg-white text-black mb-4 w-full border-2 border-gray-100 rounded-lg p-3"
                                    placeholder="Put your name here..."/>
-                            <p className="text-sm">Phone</p>
+                            <p className="text-sm text-black">Phone</p>
                             <input id="name" type="text"
                                    value={phone}
                                    onChange={e => setPhone(e.target.value)}
-                                   className="bg-white mb-4  w-full border-2 border-gray-100 rounded-lg p-3"
+                                   className="bg-white text-black mb-4  w-full border-2 border-gray-100 rounded-lg p-3"
                                    placeholder="Put your phone number here..."/>
-                            <p className="text-sm">Email *</p>
+                            <p className="text-sm text-black">Email *</p>
                             <input id="name" type="text"
                                    required={true}
                                    value={email}
                                    onChange={e => setEmail(e.target.value)}
-                                   className="bg-white mb-4 w-full border-2 border-gray-100 rounded-lg p-3"
+                                   className="bg-white text-black mb-4 w-full border-2 border-gray-100 rounded-lg p-3"
                                    placeholder="Put your email here..."/>
                         </>
                     }
                     {
                         step === 2 &&
                         <>
-                            <h1 className="text-2xl mb-4 font-bold">Select services that will fit your needs the
+                            <h1 className="text-2xl mb-4 text-black font-bold">Select services that will fit your needs the
                                 most</h1>
                             <Selector selected={selectedPlan.id} items={props.template ? plans.slice(1, plans.length-1) : plans.slice(1, plans.length)}
                                       placeholder={"Select your plan"}
@@ -138,14 +138,14 @@ export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
                                           setPlan(plan)
                                       }}/>
                             {selectedPlan && selectedPlan.id !== 1 && <div className="flex flex-col">
-                                <p className="py-2 font-bold">{selectedPlan.description}</p>
+                                <p className="py-2 text-black font-bold">{selectedPlan.description}</p>
                                 {selectedPlan.listed.map((inPlan, index) => <div className=""
                                                                                  key={index + 'a'}>
                                     <Star sx={{color: "green"}}/> {inPlan}</div>)}
                             </div>}
                             {selectedPlan &&
-                                <h1 className="text-4xl font-light pt-4">Final Price: {selectedPlan.price}</h1>}
-                            <p className="text-sm mt-4">Comments</p>
+                                <h1 className="text-4xl text-black font-light pt-4">Final Price: {selectedPlan.price}</h1>}
+                            <p className="text-sm mt-4 text-black">Comments</p>
                             <textarea placeholder="Anything else you want us to know?"
                                       value={comments}
                                       onChange={e => setComments(e.target.value)}
@@ -155,9 +155,9 @@ export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
                     {
                         step === 3 &&
                         <>
-                            <h1 className="text-2xl mb-4 font-bold">Let's summarize the form, share anything you want to
+                            <h1 className="text-2xl mb-4 font-bold text-black">Let's summarize the form, share anything you want to
                                 add here</h1>
-                            <p className="text-sm">Websites</p>
+                            <p className="text-sm text-black">Websites</p>
                             <textarea placeholder="If you have websites you like, list urls here, separated by comma"
                                       value={websites}
                                       onChange={e => setWebsites(e.target.value)}
@@ -177,7 +177,7 @@ export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
                     }
                     {
                         step === 4 &&
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col text-black gap-2">
                             <h1 className="text-2xl mb-4 font-bold">Review your details</h1>
                             <div className="flex gap-8"><h1 className="font-bold">Name:</h1> {name}</div>
                             <div className="flex gap-8"><h1 className="font-bold">Phone:</h1> {phone}</div>
@@ -195,26 +195,26 @@ export default function InquiryDynamicForm(props: InquiryDynamicFormProps) {
                         {
                             step !== 1 &&
                             <button
-                                className="flex justify-center text-xl items-center duration-300 hover:text-amber-600"
+                                className="flex justify-center text-black text-xl items-center duration-300 hover:text-amber-600"
                                 onClick={back}><ArrowBack/> Back
                             </button>
                         }
                         {
                             step !== 4 &&
                             <button
-                                className={"flex justify-center text-xl py-2 px-2 items-center duration-300 hover:text-blue-700 " + (step === 1 && (name === '' || email === '') ? 'bg-gray-200 text-gray-500 hover:text-gray-500': '')}
+                                className={"flex justify-center text-black text-xl py-2 px-2 items-center duration-300 hover:text-blue-700 " + (step === 1 && (name === '' || email === '') ? 'bg-gray-200 text-gray-500 hover:text-gray-500': '')}
                                 disabled={step === 1 && (name === '' || email === '')}
                                 onClick={next}>Next <ArrowForward/></button>
                         }
                         {
                             step === 4 &&
                             <button
-                                className="flex justify-center text-xl px-4 py-2 text-white bg-black items-center duration-300 border-2 border-black hover:bg-white hover:text-black"
+                                className="flex justify-center text-black text-xl px-4 py-2 text-white bg-black items-center duration-300 border-2 border-black hover:bg-white hover:text-black"
                                 onClick={submit}>Submit</button>
                         }
                     </div>
 
-                    <Link href="/select-template" className="mt-16 md:hidden flex justify-center items-center">Change template <Refresh /></Link>
+                    <Link href="/select-template" className="mt-16 text-black md:hidden flex justify-center items-center">Change template <Refresh /></Link>
                 </div>
             </div>
         </div>

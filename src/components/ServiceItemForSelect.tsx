@@ -24,10 +24,10 @@ export default function ServiceItemForSelect({id, link, style, title, descriptio
     return (
         <div className="flex min-w-52 max-w-96 flex-col rounded-xl shadow-xl">
             <div className={`${style} w-full rounded-t-xl`}></div>
-            <div className="flex flex-col h-[57%] justify-between gap-8 items-center p-12">
+            <div className="flex flex-col text-black h-[57%] justify-between gap-8 items-center p-12">
                 <div className="flex flex-col gap-4 ">
-                    <h1 className="text-3xl font-light">{title}</h1>
-                    <p className="text-md">{description}</p>
+                    <h1 className="text-3xl text-black font-light">{title}</h1>
+                    <p className="text-md text-black">{description}</p>
                 </div>
                 <Link href={link}
                       onClick={() => setHeader(header)}

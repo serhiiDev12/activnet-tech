@@ -73,7 +73,7 @@ export default function Templates({title = '', description = ''}: TemplateProps)
     return (
         <div className={`flex flex-col template-section justify-center xl:p-24 p-4 duration-300 w-full ${selectedTemplate.color}`}>
             <h1 className='text-black lg:text-5xl text-3xl lg:w-1/2 font-bold'>{title ? title : ''}</h1>
-            <p className="lg:text-2xl text-medium text-bold mt-3">{description ? description: ''}</p>
+            <p className="lg:text-2xl text-black text-medium text-bold mt-3">{description ? description: ''}</p>
             <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mt-12 lg:px-24 md:p-8">
                 <div className="flex flex-col gap-4">
                     {
@@ -81,7 +81,7 @@ export default function Templates({title = '', description = ''}: TemplateProps)
                             <Link
                                 href={item.route}
                                 onMouseOver={() => setSelectedTemplate(item)}
-                                className={`cursor-pointer w-full gap-12 flex justify-between items-center border-b-2 pb-2 border-b-transparent duration-300 font-light text-5xl hover:border-b-slate-800`}>
+                                className={`cursor-pointer text-black w-full gap-12 flex justify-between items-center border-b-2 pb-2 border-b-transparent duration-300 font-light text-5xl hover:border-b-slate-800`}>
                                 {item.title} <ArrowForward fontSize="large" className="ml-2"/></Link>
                         </div>)
                     }

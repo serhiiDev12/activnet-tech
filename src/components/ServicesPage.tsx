@@ -20,7 +20,7 @@ const content = [
         id: 2,
         title: "SEO Optimized",
         description: "To make website searchable through different search engines we use Next.js technology that works great with search engines and provide all necessary support for your success. All websites delivered have consistency of SEO optimization.",
-        classes: "text-left p-12 flex-row-reverse bg-white",
+        classes: "text-left p-12 flex-row-reverse bg-white text-black",
         img: "seo1"
     },
     {

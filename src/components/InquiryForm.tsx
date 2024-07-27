@@ -35,12 +35,12 @@ export default function InquiryForm(props: InquiryFormProps) {
     return (
         <div className="w-full flex rounded-md">
             <div className="bg-form w-2/5 flex-col hidden md:flex lg:flex xl:flex justify-center gap-8">
-                <h1 className="bg-white-transparent text-center text-6xl font-bold px-12 py-8">{props.title}</h1>
+                <h1 className="bg-white-transparent text-center text-6xl font-bold px-12 py-8 text-black">{props.title}</h1>
                 <p className="text-5xl font-bold text-center text-white px-12">{props.subtitle}</p>
             </div>
             <div className="flex flex-col gap-8 w-full xl:w-2/5 p-24 border-t-2 border-gray-300">
                 {!tankYou && <>
-                    <h1 className="text-6xl font-bold">Let's talk!</h1>
+                    <h1 className="text-6xl font-bold text-black">Let's talk!</h1>
                     <input value={name} onChange={e => setName(e.target.value)} type="text" placeholder="Name"
                            className="border-2 border-gray-300 px-3 py-3 rounded focus:border-blue-500 outline-0"/>
                     <input value={email} onChange={e => setEmail(e.target.value)} type="text" placeholder="Email"

@@ -6,12 +6,12 @@ export default function HowToGet() {
     return (
         <div className=" w-full p-4 lg:p-24 bg-gray-50">
             <div className="header-text">
-                <h1 className="text-6xl pb-2 font-bold">How it works</h1>
-                <p className="text-2xl">Read more about process</p>
+                <h1 className="text-6xl text-black pb-2 font-bold">How it works</h1>
+                <p className="text-2xl text-black">Read more about process</p>
             </div>
             <div className="flex flex-1 justify-between w-full pt-16 m-auto gap-12">
-                <div className="flex flex-col gap-8">
-                    <div className="">
+                <div className="flex flex-col text-black gap-8">
+                    <div className="text-black">
                         <h3 className="text-2xl pb-2 font-bold flex items-end gap-2"><span className="text-7xl font-light">01</span>Select Services</h3>
                         <p className="pb-2 text-xl">It can be either custom design order or you can choose our template</p>
                         <ul className="list-none text-gray-800">

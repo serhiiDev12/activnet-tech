@@ -26,7 +26,7 @@ export default function Main() {
                 <h4 className={` duration-1000 lg:text-2xl text-xl text-white font-bold`}>Stand out with professional wesbite, <br/> SEO optimized and build according to your ideas and needs</h4>
 
                 <div className={` duration-1000`}>
-                    <Link href="/select-service" className="px-8 py-3 rounded-md bg-white hover:bg-black hover:text-white duration-300">GET STARTED</Link>
+                    <Link href="/select-service" className="px-8 py-3 rounded-md text-black bg-white hover:bg-black hover:text-white duration-300">GET STARTED</Link>
                 </div>
             </div>
             <div className={`bg-custom ${scroll ? 'scrolled': ''} duration-2000 mt-16 media-stuff hidden lg:flex`}>
